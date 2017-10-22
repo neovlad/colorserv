@@ -21,11 +21,16 @@ def upload_file():
     # check if the post request has the file part
 
     if len(request.args) > 0:
-        outfile = "./static/video/test14.mp4"
-        poc = "./static/processed/test14.mp4"
+        outfile = "./static/video/test.mp4"
+        poc = "./static/processed/test.mp4"
+        if os.path.isfile(outfile):
+            os.remove(outfile)
+        if os.path.isfile(outfile):
+            os.remove(outfile)
+
         getVideo(request.args['input'], outfile)
         modifyVideo(outfile, poc)
-        return render_template('res.html', vidpath="/static/processed/test14.mp4")
+        return render_template('res.html', vidpath="/static/processed/test.mp4")
     # if user does not select file, browser also
     # submit a empty part without filename
     # if len(os.listdir(UPLOAD_FOLDER)) > 10:
