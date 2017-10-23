@@ -20,7 +20,7 @@ def modifyVideo(file, fileout):
         if ret == False:
             break
         b,g,r = cv2.split(frame)
-        frame = cv2.merge((g,b,r))
+        frame = cv2.merge((r,g,b))
         vout.write(frame)
 
 
